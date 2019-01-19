@@ -46,6 +46,7 @@
                // 
                resources.ApplyResources(this.fileNameTextBox, "fileNameTextBox");
                this.fileNameTextBox.Name = "fileNameTextBox";
+               this.fileNameTextBox.TextChanged += new System.EventHandler(this.fileNameTextBox_TextChanged);
                // 
                // cancelButton
                // 
