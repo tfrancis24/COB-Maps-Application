@@ -30,7 +30,7 @@
           {
                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
                this.inputButton = new System.Windows.Forms.Button();
-               this.textBox1 = new System.Windows.Forms.TextBox();
+               this.fileNameTextBox = new System.Windows.Forms.TextBox();
                this.cancelButton = new System.Windows.Forms.Button();
                this.mapButton = new System.Windows.Forms.Button();
                this.SuspendLayout();
@@ -40,11 +40,12 @@
                resources.ApplyResources(this.inputButton, "inputButton");
                this.inputButton.Name = "inputButton";
                this.inputButton.UseVisualStyleBackColor = false;
+               this.inputButton.Click += new System.EventHandler(this.inputButton_Click);
                // 
-               // textBox1
+               // fileNameTextBox
                // 
-               resources.ApplyResources(this.textBox1, "textBox1");
-               this.textBox1.Name = "textBox1";
+               resources.ApplyResources(this.fileNameTextBox, "fileNameTextBox");
+               this.fileNameTextBox.Name = "fileNameTextBox";
                // 
                // cancelButton
                // 
@@ -66,7 +67,7 @@
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.Controls.Add(this.mapButton);
                this.Controls.Add(this.cancelButton);
-               this.Controls.Add(this.textBox1);
+               this.Controls.Add(this.fileNameTextBox);
                this.Controls.Add(this.inputButton);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
                this.Name = "Form1";
@@ -79,7 +80,7 @@
           #endregion
 
           private System.Windows.Forms.Button inputButton;
-          private System.Windows.Forms.TextBox textBox1;
+          private System.Windows.Forms.TextBox fileNameTextBox;
           private System.Windows.Forms.Button cancelButton;
           private System.Windows.Forms.Button mapButton;
      }

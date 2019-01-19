@@ -26,5 +26,36 @@ namespace GoogleMapsFormApp
           {
 
           }
+
+          // Code for selecting a csv/input file
+          private void inputButton_Click(object sender, EventArgs e)
+          {
+               OpenFile(fileNameTextBox);
+          }
+
+          //Dialog for opening a file
+          private void OpenFile(TextBox t)
+          {
+               OpenFileDialog ofd = new OpenFileDialog();
+               if (ofd.ShowDialog() == DialogResult.OK)
+               {
+                    try
+                    {
+                         System.IO.Stream myStream = null;
+                         if ((myStream = ofd.OpenFile()) != null)
+                         {
+                              using (myStream)
+                              {
+                                   t.Text = ofd.FileName;
+                              }
+                         }
+                    }
+                    catch (Exception ex)
+                    {
+                         MessageBox.Show("You must select a file path" + ex.Message, "Error",
+                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+               }
+          }
      }
 }
