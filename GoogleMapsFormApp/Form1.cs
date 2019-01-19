@@ -27,7 +27,7 @@ namespace GoogleMapsFormApp
 
           }
 
-          // Code for selecting a csv/input file
+          //Selecting a csv/input file
           private void inputButton_Click(object sender, EventArgs e)
           {
                OpenFile(fileNameTextBox);
@@ -56,6 +56,12 @@ namespace GoogleMapsFormApp
                          MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                }
+          }
+
+          private void cancelButton_Click(object sender, EventArgs e)
+          {
+               //Add if else or dialog box asking users confirmation to close app later
+               Application.Exit();
           }
      }
 }
