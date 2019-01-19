@@ -28,6 +28,7 @@
           /// </summary>
           private void InitializeComponent()
           {
+               System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
                this.inputButton = new System.Windows.Forms.Button();
                this.textBox1 = new System.Windows.Forms.TextBox();
                this.cancelButton = new System.Windows.Forms.Button();
@@ -36,54 +37,39 @@
                // 
                // inputButton
                // 
-               this.inputButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-               this.inputButton.Location = new System.Drawing.Point(37, 30);
+               resources.ApplyResources(this.inputButton, "inputButton");
                this.inputButton.Name = "inputButton";
-               this.inputButton.Size = new System.Drawing.Size(145, 23);
-               this.inputButton.TabIndex = 0;
-               this.inputButton.Text = "Select CSV File";
                this.inputButton.UseVisualStyleBackColor = false;
                // 
                // textBox1
                // 
-               this.textBox1.Location = new System.Drawing.Point(37, 70);
+               resources.ApplyResources(this.textBox1, "textBox1");
                this.textBox1.Name = "textBox1";
-               this.textBox1.Size = new System.Drawing.Size(414, 20);
-               this.textBox1.TabIndex = 1;
                // 
                // cancelButton
                // 
-               this.cancelButton.Location = new System.Drawing.Point(223, 138);
+               resources.ApplyResources(this.cancelButton, "cancelButton");
                this.cancelButton.Name = "cancelButton";
-               this.cancelButton.Size = new System.Drawing.Size(95, 23);
-               this.cancelButton.TabIndex = 2;
-               this.cancelButton.Text = "Cancel";
                this.cancelButton.UseMnemonic = false;
                this.cancelButton.UseVisualStyleBackColor = true;
                // 
                // mapButton
                // 
-               this.mapButton.Location = new System.Drawing.Point(354, 138);
+               resources.ApplyResources(this.mapButton, "mapButton");
                this.mapButton.Name = "mapButton";
-               this.mapButton.Size = new System.Drawing.Size(97, 23);
-               this.mapButton.TabIndex = 3;
-               this.mapButton.Text = "Go";
                this.mapButton.UseVisualStyleBackColor = true;
                this.mapButton.Click += new System.EventHandler(this.mapButton_Click);
                // 
                // Form1
                // 
-               this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+               resources.ApplyResources(this, "$this");
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.AutoSize = true;
-               this.ClientSize = new System.Drawing.Size(486, 173);
                this.Controls.Add(this.mapButton);
                this.Controls.Add(this.cancelButton);
                this.Controls.Add(this.textBox1);
                this.Controls.Add(this.inputButton);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
                this.Name = "Form1";
-               this.Text = "Form1";
                this.Load += new System.EventHandler(this.Form1_Load);
                this.ResumeLayout(false);
                this.PerformLayout();
