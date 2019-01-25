@@ -80,7 +80,7 @@ namespace GoogleMapsFormApp
             };*/
 
             Head(sw);
-            writeLocation(sw, locationData);
+            writeLocations(sw, locationData);
             Tail(sw);
 
 
@@ -119,15 +119,23 @@ namespace GoogleMapsFormApp
                html.ForEach(writer.WriteLine);
           }
 
-          public void writeLocation(StreamWriter writer)
+          public void writeLocations(StreamWriter writer, List<Tuple<string, MapLocation>> locationData)
           {
-            for (int i = 0; i < locationData.Count; i++)
-            {
-                writer.Write("");
-            }
+                for (int i = 0; i < locationData.Count; i++)
+                {
+                    if (i == locationData.Count - 1)
+                    {
+                        //last element, no ending comma
+                        writer.Write($"['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}]\n");
+                    }
+                    else
+                    {
+                        writer.Write($"['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}],\n");
+                    }
+                }
           }
 
-          public void Tail(StreamWriter writer)
+        public void Tail(StreamWriter writer)
           {
                List<string> html = new List<string>
                  {
@@ -162,22 +170,6 @@ namespace GoogleMapsFormApp
 
                html.ForEach(writer.WriteLine);
           }
-
-            public void WriteLocations(StreamWriter writer, List<Tuple<string, MapLocation>> locationData)
-            {
-                for (int i = 0; i < locationData.Count; i++)
-                {
-                    if (i == locationData.Count - 1)
-                    {
-                        //last element, no ending comma
-                        writer.Write($"      ['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}]\n");
-                    }
-                    else
-                    {
-                        writer.Write($"      ['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}],\n");
-                    }
-                }
-            }
 
     }
 }
