@@ -73,18 +73,18 @@ namespace GoogleMapsFormApp
 
                //Saves file "MapTest" to the user's desktop
                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-               StreamWriter sw = new StreamWriter(desktopPath + "\\MapTest.html");
-            /*{
-                What does this do
-                AutoFlush = true
-            };*/
+               StreamWriter sw = new StreamWriter(desktopPath + "\\MapTest.html")
+               {
+                   // This fi
+                   AutoFlush = true
+               };
 
+            //These three functions write parts of the HTML file
             Head(sw);
             writeLocations(sw, locationData);
             Tail(sw);
 
             MessageBox.Show("Created File");
-
 
           }
 
