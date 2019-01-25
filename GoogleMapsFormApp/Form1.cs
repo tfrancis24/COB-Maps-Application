@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Geocode;
 
 namespace GoogleMapsFormApp
 {
@@ -73,13 +74,21 @@ namespace GoogleMapsFormApp
                //Saves file "MapTest" to the user's desktop
                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                StreamWriter sw = new StreamWriter(desktopPath + "\\MapTest.html");
-               //{
-               //     //What does this do
-               //     AutoFlush = true
-               //};
+            /*{
+                What does this do
+                AutoFlush = true
+            };*/
+
+            Head(sw);
+            writeLocation(sw, locationData);
+            Tail(sw);
+
 
           }
 
+          public GeocodeClient geocodeClient = new GeocodeClient("");
+
+          public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
           public void Head(StreamWriter writer)
           {
                //StreamWriter _writer = new StreamWriter("test.html");
@@ -89,7 +98,7 @@ namespace GoogleMapsFormApp
                      "<html>",
                      "<head>",
                      "  <meta http-equiv=\"content - type\" content=\"text/html; charset = UTF-8\" /> ",
-                     "  <title>Google Maps Multiple Markers</title>",
+                     "  <title>Where Do They Come From?</title>",
                      "    <style>",
                      "      html, body, #map {",
                      "        height: 100%;",
@@ -97,7 +106,7 @@ namespace GoogleMapsFormApp
                      "        padding: 0px",
                      "      }",
                      "    </style>",
-                     "  <script src=\"http://maps.google.com/maps/api/js?sensor=false\" ",
+                     "  <script src=\"http://maps.google.com/maps/api/js?sensor=false\" ", //use google maps API?
                      "          type=\"text/javascript\"></script>",
                      "</head>",
                      "<body>",
@@ -108,6 +117,14 @@ namespace GoogleMapsFormApp
                  };
 
                html.ForEach(writer.WriteLine);
+          }
+
+          public void writeLocation(StreamWriter writer)
+          {
+            for (int i = 0; i < locationData.count; i++)
+            {
+                writer.Write("");
+            }
           }
 
           public void Tail(StreamWriter writer)
