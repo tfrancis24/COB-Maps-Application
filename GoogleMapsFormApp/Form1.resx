@@ -123,10 +123,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="inputButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 24</value>
+    <value>99, 57</value>
+  </data>
+  <data name="inputButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="inputButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 29</value>
+    <value>387, 69</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="inputButton.TabIndex" type="System.Int32, mscorlib">
@@ -148,10 +151,13 @@
     <value>3</value>
   </data>
   <data name="fileNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 70</value>
+    <value>99, 167</value>
+  </data>
+  <data name="fileNameTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="fileNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>414, 20</value>
+    <value>1097, 38</value>
   </data>
   <data name="fileNameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -169,10 +175,13 @@
     <value>2</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 138</value>
+    <value>595, 329</value>
+  </data>
+  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 23</value>
+    <value>253, 55</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -193,10 +202,13 @@
     <value>1</value>
   </data>
   <data name="mapButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 138</value>
+    <value>944, 329</value>
+  </data>
+  <data name="mapButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="mapButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 23</value>
+    <value>259, 55</value>
   </data>
   <data name="mapButton.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -220,16 +232,19 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>16, 31</value>
   </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>486, 173</value>
+    <value>1296, 413</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Map Applicaiton</value>
+    <value>Map Application</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>

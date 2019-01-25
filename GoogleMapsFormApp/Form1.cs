@@ -121,7 +121,7 @@ namespace GoogleMapsFormApp
 
           public void writeLocation(StreamWriter writer)
           {
-            for (int i = 0; i < locationData.count; i++)
+            for (int i = 0; i < locationData.Count; i++)
             {
                 writer.Write("");
             }
@@ -162,5 +162,22 @@ namespace GoogleMapsFormApp
 
                html.ForEach(writer.WriteLine);
           }
-     }
+
+            public void WriteLocations(StreamWriter writer, List<Tuple<string, MapLocation>> locationData)
+            {
+                for (int i = 0; i < locationData.Count; i++)
+                {
+                    if (i == locationData.Count - 1)
+                    {
+                        //last element, no ending comma
+                        writer.Write($"      ['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}]\n");
+                    }
+                    else
+                    {
+                        writer.Write($"      ['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}],\n");
+                    }
+                }
+            }
+
+    }
 }
