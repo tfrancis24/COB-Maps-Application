@@ -17,6 +17,9 @@ namespace GoogleMapsFormApp
           //Geocode object - place the API key here
           public GeocodeClient geocodeClient = new GeocodeClient("");
 
+          //Holds a string for the companies name, and MapLocation object
+          public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
+
           public Form1()
           {
                InitializeComponent();
@@ -92,12 +95,37 @@ namespace GoogleMapsFormApp
 
           }
 
-          public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
+          //Reads location data from an input CSV file 
+          public void readCSV()
+          {
+               //Loops through lines in csv file, skip the header row 
+               foreach (var line in File.ReadAllLines("file path", Encoding.GetEncoding(1250)).Skip(1))
+               {
+                    //Each rows address data gets split into the array seperated by a comma
+                    string[] addressInfo = line.Split(',');
+
+                    //MapLocation object is intialized with values from array
+                    MapLocation location = geocodeClient.GetMapLocation(new Address
+                    {
+                         Street = addressInfo[1],
+                         Apt = addressInfo[2],
+                         City = addressInfo[3],
+                         Region = addressInfo[4],
+                         PostalCode = addressInfo[5]
+                    });
+                      
+                    //Adds the company name and the maplocation tied to it into the list
+                    locationData.Add(new Tuple<string, MapLocation>(addressInfo[0], location));
+
+               }      
+          }
+
+          
           public void Head(StreamWriter writer)
           {
                //StreamWriter _writer = new StreamWriter("test.html");
                List<string> html = new List<string>
-                 {
+               {
                      "<!DOCTYPE html>",
                      "<html>",
                      "<head>",
@@ -118,7 +146,7 @@ namespace GoogleMapsFormApp
                      "",
                      "  <script type=\"text/javascript\">",
                      "    var locations = ["
-                 };
+               };
 
                html.ForEach(writer.WriteLine);
           }
@@ -142,7 +170,7 @@ namespace GoogleMapsFormApp
           public void Tail(StreamWriter writer)
           {
                List<string> html = new List<string>
-                 {
+               {
                      "    ];",
                      " ",
                      "    var map = new google.maps.Map(document.getElementById('map'), {",
@@ -170,7 +198,7 @@ namespace GoogleMapsFormApp
                      "  </script>",
                      "</body>",
                      "</html>"
-                 };
+               };
 
                html.ForEach(writer.WriteLine);
           }

@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="GeocodeClient.cs" />
     <Compile Include="GeoObjs.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MapLocation.cs" />
     <Compile Include="Marker.cs" />
     <Compile Include="Program.cs" />
