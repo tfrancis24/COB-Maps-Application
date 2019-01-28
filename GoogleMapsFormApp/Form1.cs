@@ -14,6 +14,9 @@ namespace GoogleMapsFormApp
 {
      public partial class Form1 : Form
      {
+          //Geocode object - place the API key here
+          public GeocodeClient geocodeClient = new GeocodeClient("");
+
           public Form1()
           {
                InitializeComponent();
@@ -75,7 +78,7 @@ namespace GoogleMapsFormApp
                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                StreamWriter sw = new StreamWriter(desktopPath + "\\MapTest.html")
                {
-                   // This fi
+                   //This fixed the issue of streamwriter randomly freezing the write file process
                    AutoFlush = true
                };
 
@@ -84,11 +87,10 @@ namespace GoogleMapsFormApp
             writeLocations(sw, locationData);
             Tail(sw);
 
+            //Prints after above methods run, indicating the file has been created
             MessageBox.Show("Created File");
 
           }
-
-          public GeocodeClient geocodeClient = new GeocodeClient("");
 
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
           public void Head(StreamWriter writer)
@@ -137,7 +139,7 @@ namespace GoogleMapsFormApp
                 }
           }
 
-        public void Tail(StreamWriter writer)
+          public void Tail(StreamWriter writer)
           {
                List<string> html = new List<string>
                  {
