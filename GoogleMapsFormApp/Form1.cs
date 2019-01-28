@@ -15,10 +15,13 @@ namespace GoogleMapsFormApp
      public partial class Form1 : Form
      {
           //Geocode object - place the API key here
-          public GeocodeClient geocodeClient = new GeocodeClient("");
+          public GeocodeClient geocodeClient = new GeocodeClient("PUT KEY HERE");
 
           //Holds a string for the companies name, and MapLocation object
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
+
+          //Holds path of the location input file. For testing only
+          public string inputPath = "PUT PATH HERE";
 
           public Form1()
           {
@@ -75,23 +78,23 @@ namespace GoogleMapsFormApp
           private void mapButton_Click(object sender, EventArgs e)
           {
                //Add code for ReadCSV later...
-               //ReadCSV();
+               readCSV();
 
                //Saves file "MapTest" to the user's desktop
                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                StreamWriter sw = new StreamWriter(desktopPath + "\\MapTest.html")
                {
-                   //This fixed the issue of streamwriter randomly freezing the write file process
+                   //This fixed the issue of  streamwriter randomly freezing the write file process
                    AutoFlush = true
                };
 
-            //These three functions write parts of the HTML file
-            Head(sw);
-            writeLocations(sw, locationData);
-            Tail(sw);
+               //These three functions write parts of the HTML file
+               Head(sw);
+               writeLocations(sw, locationData);
+               Tail(sw);
 
-            //Prints after above methods run, indicating the file has been created
-            MessageBox.Show("Created File");
+               //Prints after above methods run, indicating the file has been created
+               MessageBox.Show("Created File");
 
           }
 
@@ -99,7 +102,7 @@ namespace GoogleMapsFormApp
           public void readCSV()
           {
                //Loops through lines in csv file, skip the header row 
-               foreach (var line in File.ReadAllLines("file path", Encoding.GetEncoding(1250)).Skip(1))
+               foreach (var line in File.ReadAllLines(inputPath, Encoding.GetEncoding(1250)).Skip(1))
                {
                     //Each rows address data gets split into the array seperated by a comma
                     string[] addressInfo = line.Split(',');
