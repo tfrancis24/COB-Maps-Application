@@ -73,7 +73,7 @@ namespace GoogleMapsFormApp
 
           private void mapButton_Click(object sender, EventArgs e)
           {
-               //Add code for ReadCSV later...
+               
                readCSV();
 
                //Saves file "MapTest" to the user's desktop
