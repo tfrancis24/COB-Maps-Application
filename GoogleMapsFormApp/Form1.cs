@@ -20,7 +20,7 @@ namespace GoogleMapsFormApp
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
 
           //Holds path of the location input file. For testing only
-          public string inputPath = "C:\\Users\\timot\\Desktop\\locations_X.csv";
+          public string inputPath = "BIS_Meet_the_Firms_020819.csv";
 
           public Form1()
           {
@@ -111,7 +111,7 @@ namespace GoogleMapsFormApp
                     MapLocation location = geocodeClient.GetMapLocation(new Address
                     {
                          Street = addressInfo[1],
-                         Apt = addressInfo[2], //null
+                         Apt = null, //null
                          City = addressInfo[3],
                          Region = addressInfo[4],
                          PostalCode = addressInfo[5]
@@ -141,7 +141,7 @@ namespace GoogleMapsFormApp
                      "        padding: 0px",
                      "      }",
                      "    </style>",
-                     "  <script src=\"http://maps.google.com/maps/api/js?key=" + apiKey + "&callback=initMap\"", //use google maps API?
+                     "  <script src=\"http://maps.google.com/maps/api/js?key=" + apiKey + "&callback=initMap\"", 
                      "          type=\"text/javascript\"></script>",
                      "</head>",
                      "<body>",
@@ -188,9 +188,17 @@ namespace GoogleMapsFormApp
                      "",
                      "    for (i = 0; i < locations.length; i++) { ",
                      "      marker = new google.maps.Marker({",
-                     "        position: new google.maps.LatLng(locations[i][1], locations[i][2]),",
-                     "        map: map",
-                     "      });",
+                     "          position: new google.maps.LatLng(locations[i][1], locations[i][2]),",
+                     "          map: map",
+                     "          });",
+                     
+                     /* The below 4 lines make the infowindow open then the map is viewed*/
+                     "	    var infowindow = new google.maps.InfoWindow({",
+                     "		    content:locations[i][0]",
+                     "		    });",
+                     "	    infowindow.open(map, marker); ",
+                     "",
+
                      "      google.maps.event.addListener(marker, 'click', (function(marker, i) {",
                      "        return function() {",
                      "          infowindow.setContent(locations[i][0]);",
