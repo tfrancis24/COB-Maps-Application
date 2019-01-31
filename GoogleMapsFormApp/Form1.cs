@@ -81,6 +81,7 @@ namespace GoogleMapsFormApp
                StreamWriter sw = new StreamWriter(desktopPath + "\\MapTest.html")
                {
                    //This fixed the issue of  streamwriter randomly freezing the write file process
+                   //Flushing the output buffer to keep it from being full
                    AutoFlush = true
                };
 
