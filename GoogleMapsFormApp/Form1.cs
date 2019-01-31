@@ -1,27 +1,23 @@
-﻿using System;
+﻿using Geocode;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Geocode;
 
 namespace GoogleMapsFormApp
 {
-     public partial class Form1 : Form
+    public partial class Form1 : Form
      {
           //Geocode object - place the API key here
-          public GeocodeClient geocodeClient = new GeocodeClient("PUT KEY HERE");
+          public GeocodeClient geocodeClient = new GeocodeClient("");
 
           //Holds a string for the companies name, and MapLocation object
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
 
           //Holds path of the location input file. For testing only
-          public string inputPath = "PUT PATH HERE";
+          public string inputPath = "C:\\Users\\timot\\Desktop\\locations_x.csv";
 
           public Form1()
           {
@@ -111,7 +107,7 @@ namespace GoogleMapsFormApp
                     MapLocation location = geocodeClient.GetMapLocation(new Address
                     {
                          Street = addressInfo[1],
-                         Apt = addressInfo[2],
+                         Apt = addressInfo[2], //null
                          City = addressInfo[3],
                          Region = addressInfo[4],
                          PostalCode = addressInfo[5]
