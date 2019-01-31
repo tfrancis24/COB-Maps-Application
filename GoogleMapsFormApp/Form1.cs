@@ -161,11 +161,11 @@ namespace GoogleMapsFormApp
                     if (i == locationData.Count - 1)
                     {
                         //last element, no ending comma
-                        writer.Write($"['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}]\n");
+                        writer.Write($"		['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}]\n");
                     }
                     else
                     {
-                        writer.Write($"['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}],\n");
+                        writer.Write($"		['{locationData[i].Item1}', {locationData[i].Item2.latitude}, {locationData[i].Item2.longitude}],\n");
                     }
                 }
           }
