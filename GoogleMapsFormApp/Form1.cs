@@ -10,14 +10,17 @@ namespace GoogleMapsFormApp
 {
     public partial class Form1 : Form
      {
+          //Holds the API key
+          public static string apiKey = "";
+
           //Geocode object - place the API key here
-          public GeocodeClient geocodeClient = new GeocodeClient("");
+          public GeocodeClient geocodeClient = new GeocodeClient(apiKey);
 
           //Holds a string for the companies name, and MapLocation object
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
 
           //Holds path of the location input file. For testing only
-          public string inputPath = "Put PATH FILE here";
+          public string inputPath = "C:\\Users\\timot\\Desktop\\locations_X.csv";
 
           public Form1()
           {
@@ -138,7 +141,7 @@ namespace GoogleMapsFormApp
                      "        padding: 0px",
                      "      }",
                      "    </style>",
-                     "  <script src=\"http://maps.google.com/maps/api/js?sensor=false\" ", //use google maps API?
+                     "  <script src=\"http://maps.google.com/maps/api/js?key=" + apiKey + "&callback=initMap\"", //use google maps API?
                      "          type=\"text/javascript\"></script>",
                      "</head>",
                      "<body>",
