@@ -17,7 +17,7 @@ namespace GoogleMapsFormApp
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
 
           //Holds path of the location input file. For testing only
-          public string inputPath = "C:\\Users\\timot\\Desktop\\locations_x.csv";
+          public string inputPath = "Put PATH FILE here";
 
           public Form1()
           {
