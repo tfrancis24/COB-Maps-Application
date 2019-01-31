@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMapsFormApp", "Google
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{96042E62-F9DB-402D-A35D-E0BFA3C175A7}"
 	ProjectSection(SolutionItems) = preProject
-		Locations.csv = Locations.csv
 		..\..\..\..\Desktop\locations_x.csv = ..\..\..\..\Desktop\locations_x.csv
 	EndProjectSection
 EndProject
