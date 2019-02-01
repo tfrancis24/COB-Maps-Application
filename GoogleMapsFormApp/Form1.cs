@@ -11,7 +11,7 @@ namespace GoogleMapsFormApp
     public partial class Form1 : Form
      {
           //Holds the API key
-          public static string apiKey = "";
+          public static string apiKey = "AIzaSyCi4hgvWr0VUbmE5Z91PmfSefcU-CWKeUA";
 
           //Geocode object - place the API key here
           public GeocodeClient geocodeClient = new GeocodeClient(apiKey);
@@ -110,6 +110,7 @@ namespace GoogleMapsFormApp
           {
               readCSVCircleCount();
 
+
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             StreamWriter sw = new StreamWriter(desktopPath + "\\MapTest.html")
             {
@@ -118,13 +119,16 @@ namespace GoogleMapsFormApp
                 AutoFlush = true
             };
 
-            Head(sw);
+            HeadCircle(sw);
+            writeCircleLocations(sw, locationDataCityCount);
+            MessageBox.Show("Printed");
+
 
         }
 
-          //Reads location data from an input CSV file
-          //This method will be used to map pins
-          public void readCSV() //for marker map only
+        //Reads location data from an input CSV file
+        //This method will be used to map pins
+        public void readCSV() //for marker map only
           {
                //Loops through lines in csv file, skip the header row 
                foreach (var line in File.ReadAllLines(inputPath, Encoding.GetEncoding(1250)).Skip(1))
@@ -286,6 +290,18 @@ namespace GoogleMapsFormApp
                     }
                 }
           }
+
+        public void writeCircleLocations(StreamWriter writer, List<Tuple<string, int, MapLocation>> locationData)
+        {
+            for (int i = 0; i < locationData.Count; i++)
+            {
+                writer.Write("citymap['" + locationData[i].Item3.City + "," + locationData[i].Item3.Region + "']= {\n"
+                    + "center: new google.maps.LatLng(" + locationData[i].Item3.latitude + ", " + locationData[i].Item3.longitude + "),\n"
+                    + "population: " + locationData[i].Item2 + ",\n"
+                    + "name:' " + locationData[i].Item3.City + ", " + locationData[i].Item3.Region + "'\n"
+                    + "};\n");
+            }
+        }
 
           public void Tail(StreamWriter writer)
           {
