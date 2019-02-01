@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace GoogleMapsFormApp
 {
+    //Object that holds two geocoding parameters and a count
     public class CityCount
     {
-        public string CityState { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
         public int Count { get; set; }
-
     }
 }

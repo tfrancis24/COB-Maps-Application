@@ -19,8 +19,8 @@ namespace GoogleMapsFormApp
           //Holds a string for the companies name, and MapLocation object
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
 
-
-         public CityCount[] cityCount;
+          //Array of city count objects
+          public CityCount[] cityCount; 
 
 
           //Holds path of the location input file. For testing only
@@ -128,27 +128,25 @@ namespace GoogleMapsFormApp
                }      
           }
            
-          //Reads from the map 
+          //Reads from the input file to count number of cities on the map
           public void readCSVCircleCount()
           {
-               string[] lines = File.ReadAllLines(inputPath);
-               lines = lines.Skip(1).ToArray();
-               string[] addressInfo;
-               string cityState;
-               int uniqueCityCount = 0;
-               bool found = false;
-               //CityCount[] cityCount = new CityCount[lines.Length];
-               cityCount = new CityCount[lines.Length];
+               string[] lines = File.ReadAllLines(inputPath); //Reads all the lines of the file
+               lines = lines.Skip(1).ToArray(); //Skips the header row
+
+               int uniqueCityCount = 0; //Count of total unique cities in file
+               cityCount = new CityCount[lines.Length]; //Array of CityCount objects, get the number of objects from the file length
 
                for (int i = 0; i < lines.Length; i++)
                {
-                   addressInfo = lines[i].Split(',');
-                   cityState = addressInfo[3] + "," + addressInfo[4];
-                   found = false;
+                   string[] addressInfo = lines[i].Split(','); //Splits each row of the data into an array
+                   string city = addressInfo[3];
+                   string state = addressInfo[4];
+                   bool found = false;
 
                    for (int j = 0; j < uniqueCityCount; j++)
                    {
-                       if (cityCount[j].CityState == cityState)
+                       if (cityCount[j].City == city && cityCount[j].State == state)
                        {
                            cityCount[j].Count++;
                            found = true;
@@ -160,7 +158,8 @@ namespace GoogleMapsFormApp
                    {
                        cityCount[uniqueCityCount] = new CityCount
                        {
-                           CityState = cityState,
+                           City = city,
+                           State = state,
                            Count = 1
                        };
                        uniqueCityCount++;
@@ -172,7 +171,7 @@ namespace GoogleMapsFormApp
 
             foreach (var CityCountObject in cityCount)
             {
-                listBox1.Items.Add(CityCountObject.CityState + "Count: " + CityCountObject.Count);
+                listBox1.Items.Add(CityCountObject.City + "," + CityCountObject.State + " Count: " + CityCountObject.Count);
             }
 
 
