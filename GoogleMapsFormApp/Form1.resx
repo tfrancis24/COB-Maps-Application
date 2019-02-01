@@ -123,13 +123,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="inputButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 57</value>
+    <value>74, 46</value>
   </data>
   <data name="inputButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 7, 8, 7</value>
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="inputButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 69</value>
+    <value>290, 56</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="inputButton.TabIndex" type="System.Int32, mscorlib">
@@ -151,13 +151,13 @@
     <value>5</value>
   </data>
   <data name="fileNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 167</value>
+    <value>74, 135</value>
   </data>
   <data name="fileNameTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 7, 8, 7</value>
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="fileNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 38</value>
+    <value>824, 31</value>
   </data>
   <data name="fileNameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -175,13 +175,13 @@
     <value>4</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>595, 329</value>
+    <value>446, 265</value>
   </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 7, 8, 7</value>
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 55</value>
+    <value>190, 44</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -202,13 +202,13 @@
     <value>3</value>
   </data>
   <data name="mapButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>944, 329</value>
+    <value>708, 265</value>
   </data>
   <data name="mapButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 7, 8, 7</value>
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="mapButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 55</value>
+    <value>194, 44</value>
   </data>
   <data name="mapButton.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -229,10 +229,13 @@
     <value>2</value>
   </data>
   <data name="circleMapButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>944, 249</value>
+    <value>708, 201</value>
+  </data>
+  <data name="circleMapButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="circleMapButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 55</value>
+    <value>194, 44</value>
   </data>
   <data name="circleMapButton.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -253,13 +256,16 @@
     <value>1</value>
   </data>
   <data name="listBox1.ItemHeight" type="System.Int32, mscorlib">
-    <value>31</value>
+    <value>25</value>
   </data>
   <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>497, 26</value>
+    <value>373, 46</value>
+  </data>
+  <data name="listBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>787, 128</value>
+    <value>525, 79</value>
   </data>
   <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -280,16 +286,16 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>16, 31</value>
+    <value>12, 25</value>
   </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1296, 413</value>
+    <value>962, 386</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 7, 8, 7</value>
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Map Application</value>
