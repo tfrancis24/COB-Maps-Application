@@ -124,7 +124,7 @@ namespace GoogleMapsFormApp
 
           //Reads location data from an input CSV file
           //This method will be used to map pins
-          public void readCSV()
+          public void readCSV() //for marker map only
           {
                //Loops through lines in csv file, skip the header row 
                foreach (var line in File.ReadAllLines(inputPath, Encoding.GetEncoding(1250)).Skip(1))
