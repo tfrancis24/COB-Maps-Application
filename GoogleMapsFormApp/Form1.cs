@@ -11,7 +11,7 @@ namespace GoogleMapsFormApp
     public partial class Form1 : Form
      {
           //Holds the API key
-          public static string apiKey = "AIzaSyDS7rKOyN1nzBl6CySIENaNiiBZnskUgWE";
+          public static string apiKey = "";
 
           //Geocode object - place the API key here
           public GeocodeClient geocodeClient = new GeocodeClient(apiKey);
@@ -105,6 +105,12 @@ namespace GoogleMapsFormApp
 
           }
 
+          //When clicked, will map circles to a google map
+          private void circleMapButton_Click(object sender, EventArgs e)
+          {
+              readCSVCircleCount();
+          }
+
           //Reads location data from an input CSV file
           //This method will be used to map pins
           public void readCSV()
@@ -172,28 +178,31 @@ namespace GoogleMapsFormApp
                //Remove null indexes
                cityCount =  cityCount.Where(c => c != null).ToArray();
 
-            foreach (var cityCountObject in cityCount)
-            {
-                //MapLocation object is intialized with values from array
-                MapLocation location = geocodeClient.GetMapLocation(new Address
-                {
-                    Street = null,
-                    Apt = null, //null
-                    City = cityCountObject.City,
-                    Region = cityCountObject.State,
-                    PostalCode = null
+               foreach (var cityCountObject in cityCount)
+               {
+                   //MapLocation object is intialized with values from array
+                   MapLocation location = geocodeClient.GetMapLocation(new Address
+                   {
+                       Street = null,
+                       Apt = null, //null
+                       City = cityCountObject.City,
+                       Region = cityCountObject.State,
+                       PostalCode = null
 
-                });
+                   });
 
-                //Adds the company name and the maplocation tied to it into the list
-                locationDataCityCount.Add(new Tuple<string, int, MapLocation>(
-                    cityCountObject.City + "," + cityCountObject.State, cityCountObject.Count, location));
-            }
+                   //Adds the company name and the maplocation tied to it into the list
+                   locationDataCityCount.Add(new Tuple<string, int, MapLocation>(cityCountObject.City + "," + 
+                       cityCountObject.State, cityCountObject.Count, location));
+               }
 
-            for (int i = 0; i < locationDataCityCount.Count; i++)
-            {
-                listBox1.Items.Add(locationDataCityCount[i].Item1 + " Count: " + locationDataCityCount[i].Item2 + ", lat: " + locationDataCityCount[i].Item3.latitude + ", Long: " + locationDataCityCount[i].Item3.longitude);
-            }
+               //Prints data to listbox for testing purposes only
+               for (int i = 0; i < locationDataCityCount.Count; i++)
+               {
+                   listBox1.Items.Add(
+                       locationDataCityCount[i].Item1 + " Count: " + locationDataCityCount[i].Item2 + ", lat: " + 
+                       locationDataCityCount[i].Item3.latitude + ", Long: " + locationDataCityCount[i].Item3.longitude);
+               }
 
 
           }
@@ -289,9 +298,6 @@ namespace GoogleMapsFormApp
                html.ForEach(writer.WriteLine);
           }
 
-        private void circleMapButton_Click(object sender, EventArgs e)
-        {
-            readCSVCircleCount();
-        }
+
     }
 }
