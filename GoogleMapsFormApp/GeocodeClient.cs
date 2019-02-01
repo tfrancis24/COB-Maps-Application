@@ -58,7 +58,7 @@ namespace Geocode
         public MapLocation GetMapLocation(Address address)
         {
             return new MapLocation(
-                WebRequest($"address={address.Street}+{address.Apt}+{address.Region}+{address.PostalCode}+{address.Country}"));
+                WebRequest($"address={address.Street}+{address.Apt}+{address.City}+{address.Region}+{address.PostalCode}+{address.Country}"));
 
         }
 
@@ -79,5 +79,6 @@ namespace Geocode
             return new MapLocation(
                 WebRequest($"latlng={lat},{lng}"));
         }
+
     }
 }

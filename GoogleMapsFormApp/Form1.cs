@@ -19,6 +19,9 @@ namespace GoogleMapsFormApp
           //Holds a string for the companies name, and MapLocation object
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
 
+          //Holds an int as a count variable and MapLocation object
+          public List<Tuple<int, MapLocation>> locationDataCityCount = new List<Tuple<int, MapLocation>>();
+
           //Array of city count objects
           public CityCount[] cityCount; 
 
@@ -169,10 +172,24 @@ namespace GoogleMapsFormApp
                //Remove null indexes
                cityCount =  cityCount.Where(c => c != null).ToArray();
 
-            foreach (var CityCountObject in cityCount)
+            foreach (var cityCountObject in cityCount)
             {
-                listBox1.Items.Add(CityCountObject.City + "," + CityCountObject.State + " Count: " + CityCountObject.Count);
+                //MapLocation object is intialized with values from array
+                MapLocation location = geocodeClient.GetMapLocation(new Address
+                {
+                    Street = null,
+                    Apt = null, //null
+                    City = cityCountObject.City,
+                    Region = cityCountObject.State,
+                    PostalCode = null
+
+                });
+
+                //Adds the company name and the maplocation tied to it into the list
+                locationDataCityCount.Add(new Tuple<int, MapLocation>(cityCountObject.Count, location));
             }
+
+            
 
 
           }
