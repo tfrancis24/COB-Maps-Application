@@ -256,10 +256,10 @@
     <value>31</value>
   </data>
   <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>652, 57</value>
+    <value>497, 26</value>
   </data>
   <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>580, 97</value>
+    <value>787, 128</value>
   </data>
   <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>

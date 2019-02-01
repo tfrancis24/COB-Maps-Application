@@ -11,7 +11,7 @@ namespace GoogleMapsFormApp
     public partial class Form1 : Form
      {
           //Holds the API key
-          public static string apiKey = "";
+          public static string apiKey = "AIzaSyDS7rKOyN1nzBl6CySIENaNiiBZnskUgWE";
 
           //Geocode object - place the API key here
           public GeocodeClient geocodeClient = new GeocodeClient(apiKey);
@@ -20,7 +20,7 @@ namespace GoogleMapsFormApp
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
 
           //Holds an int as a count variable and MapLocation object
-          public List<Tuple<int, MapLocation>> locationDataCityCount = new List<Tuple<int, MapLocation>>();
+          public List<Tuple<string, int, MapLocation>> locationDataCityCount = new List<Tuple<string, int, MapLocation>>();
 
           //Array of city count objects
           public CityCount[] cityCount; 
@@ -186,10 +186,14 @@ namespace GoogleMapsFormApp
                 });
 
                 //Adds the company name and the maplocation tied to it into the list
-                locationDataCityCount.Add(new Tuple<int, MapLocation>(cityCountObject.Count, location));
+                locationDataCityCount.Add(new Tuple<string, int, MapLocation>(
+                    cityCountObject.City + "," + cityCountObject.State, cityCountObject.Count, location));
             }
 
-            
+            for (int i = 0; i < locationDataCityCount.Count; i++)
+            {
+                listBox1.Items.Add(locationDataCityCount[i].Item1 + " Count: " + locationDataCityCount[i].Item2 + ", lat: " + locationDataCityCount[i].Item3.latitude + ", Long: " + locationDataCityCount[i].Item3.longitude);
+            }
 
 
           }
