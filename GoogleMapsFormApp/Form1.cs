@@ -19,6 +19,10 @@ namespace GoogleMapsFormApp
           //Holds a string for the companies name, and MapLocation object
           public List<Tuple<string, MapLocation>> locationData = new List<Tuple<string, MapLocation>>();
 
+
+         public CityCount[] cityCount;
+
+
           //Holds path of the location input file. For testing only
           public string inputPath = "BIS_Meet_the_Firms_020819.csv";
 
@@ -98,7 +102,8 @@ namespace GoogleMapsFormApp
 
           }
 
-          //Reads location data from an input CSV file 
+          //Reads location data from an input CSV file
+          //This method will be used to map pins
           public void readCSV()
           {
                //Loops through lines in csv file, skip the header row 
@@ -121,6 +126,56 @@ namespace GoogleMapsFormApp
                     locationData.Add(new Tuple<string, MapLocation>(addressInfo[0], location));
 
                }      
+          }
+           
+          //Reads from the map 
+          public void readCSVCircleCount()
+          {
+               string[] lines = File.ReadAllLines(inputPath);
+               lines = lines.Skip(1).ToArray();
+               string[] addressInfo;
+               string cityState;
+               int uniqueCityCount = 0;
+               bool found = false;
+               //CityCount[] cityCount = new CityCount[lines.Length];
+               cityCount = new CityCount[lines.Length];
+
+               for (int i = 0; i < lines.Length; i++)
+               {
+                   addressInfo = lines[i].Split(',');
+                   cityState = addressInfo[3] + "," + addressInfo[4];
+                   found = false;
+
+                   for (int j = 0; j < uniqueCityCount; j++)
+                   {
+                       if (cityCount[j].CityState == cityState)
+                       {
+                           cityCount[j].Count++;
+                           found = true;
+                           break;
+                       }
+                   }
+
+                   if (!found)
+                   {
+                       cityCount[uniqueCityCount] = new CityCount
+                       {
+                           CityState = cityState,
+                           Count = 1
+                       };
+                       uniqueCityCount++;
+                   }
+               }
+
+               //Remove null indexes
+               cityCount =  cityCount.Where(c => c != null).ToArray();
+
+            foreach (var CityCountObject in cityCount)
+            {
+                listBox1.Items.Add(CityCountObject.CityState + "Count: " + CityCountObject.Count);
+            }
+
+
           }
 
           
@@ -214,5 +269,9 @@ namespace GoogleMapsFormApp
                html.ForEach(writer.WriteLine);
           }
 
+        private void circleMapButton_Click(object sender, EventArgs e)
+        {
+            readCSVCircleCount();
+        }
     }
 }
