@@ -109,7 +109,18 @@ namespace GoogleMapsFormApp
           private void circleMapButton_Click(object sender, EventArgs e)
           {
               readCSVCircleCount();
-          }
+
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            StreamWriter sw = new StreamWriter(desktopPath + "\\MapTest.html")
+            {
+                //This fixed the issue of  streamwriter randomly freezing the write file process
+                //Flushing the output buffer to keep it from being full
+                AutoFlush = true
+            };
+
+            Head(sw);
+
+        }
 
           //Reads location data from an input CSV file
           //This method will be used to map pins
@@ -196,14 +207,6 @@ namespace GoogleMapsFormApp
                        cityCountObject.State, cityCountObject.Count, location));
                }
 
-               //Prints data to listbox for testing purposes only
-               for (int i = 0; i < locationDataCityCount.Count; i++)
-               {
-                   listBox1.Items.Add(
-                       locationDataCityCount[i].Item1 + " Count: " + locationDataCityCount[i].Item2 + ", lat: " + 
-                       locationDataCityCount[i].Item3.latitude + ", Long: " + locationDataCityCount[i].Item3.longitude);
-               }
-
 
           }
 
@@ -237,6 +240,36 @@ namespace GoogleMapsFormApp
 
                html.ForEach(writer.WriteLine);
           }
+
+        public void HeadCircle(StreamWriter writer)
+        {
+            //StreamWriter _writer = new StreamWriter("test.html");
+            List<string> html = new List<string>
+               {
+                     "<!DOCTYPE html>",
+                     "<html>",
+                     "<head>",
+                     "  <meta http-equiv=\"content - type\" content=\"text/html; charset = UTF-8\" /> ",
+                     "  <title>Where Do They Come From?</title>",
+                     "    <style>",
+                     "      html, body, #map {",
+                     "        height: 100%;",
+                     "        margin: 0px;",
+                     "        padding: 0px",
+                     "      }",
+                     "    </style>",
+                     "  <script src=\"http://maps.google.com/maps/api/js?key=" + apiKey + "&callback=initMap\"",
+                     "          type=\"text/javascript\"></script>",
+                     "</head>",
+                     "<body>",
+                     "  <div id=\"map\"></div>",
+                     "",
+                     "  <script type=\"text/javascript\">",
+                     "    var citymap = {};"
+               };
+
+            html.ForEach(writer.WriteLine);
+        }
 
           public void writeLocations(StreamWriter writer, List<Tuple<string, MapLocation>> locationData)
           {

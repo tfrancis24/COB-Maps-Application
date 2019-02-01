@@ -34,7 +34,6 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.mapButton = new System.Windows.Forms.Button();
             this.circleMapButton = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // inputButton
@@ -72,17 +71,10 @@
             this.circleMapButton.UseVisualStyleBackColor = true;
             this.circleMapButton.Click += new System.EventHandler(this.circleMapButton_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.listBox1, "listBox1");
-            this.listBox1.Name = "listBox1";
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.circleMapButton);
             this.Controls.Add(this.mapButton);
             this.Controls.Add(this.cancelButton);
@@ -103,7 +95,6 @@
           private System.Windows.Forms.Button cancelButton;
           private System.Windows.Forms.Button mapButton;
         private System.Windows.Forms.Button circleMapButton;
-        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
