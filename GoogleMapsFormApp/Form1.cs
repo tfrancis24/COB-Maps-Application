@@ -11,7 +11,7 @@ namespace GoogleMapsFormApp
     public partial class Form1 : Form
      {
           //Holds the API key
-          public static string apiKey = "AIzaSyCi4hgvWr0VUbmE5Z91PmfSefcU-CWKeUA";
+          public static string apiKey = "";
 
           //Geocode object - place the API key here
           public GeocodeClient geocodeClient = new GeocodeClient(apiKey);
