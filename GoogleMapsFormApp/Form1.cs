@@ -10,8 +10,8 @@ namespace GoogleMapsFormApp
 {
      public partial class Form1 : Form
      {
-          //Holds the API key
-          public static string apiKey = "";
+        //Holds the API key
+        public static string apiKey = "";
 
           //Geocode object - place the API key here
           public GeocodeClient geocodeClient = new GeocodeClient(apiKey);
@@ -372,7 +372,7 @@ namespace GoogleMapsFormApp
                      "      position: citymap[city].center,",
                      "      icon: {",
                      "      path: google.maps.SymbolPath.CIRCLE,",
-                     "      scale: Math.sqrt(citymap[city].population)*3,",
+                     "      scale: Math.sqrt(citymap[city].population)*15,",
                      "      strokeColor: '#FF0000',",
                      "      strokeOpacity: 0.8,",
                      "      strokeWeight: 2,",
