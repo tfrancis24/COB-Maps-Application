@@ -27,7 +27,7 @@ namespace GoogleMapsFormApp
 
 
           //Holds path of the location input file. For testing only
-          public string inputPath = "BIS_Meet_the_Firms_02082019.csv";
+          public string inputPath = "COB_Meet_the_Firms_02152019.csv";
 
           public Form1()
           {
