@@ -10,8 +10,8 @@ namespace GoogleMapsFormApp
 {
      public partial class Form1 : Form
      {
-        //Holds the API key
-        public static string apiKey = "";
+          //Holds the API key
+          public static string apiKey = "";
 
           //Geocode object - place the API key here
           public GeocodeClient geocodeClient = new GeocodeClient(apiKey);
@@ -27,7 +27,7 @@ namespace GoogleMapsFormApp
 
 
           //Holds path of the location input file. For testing only
-          public string inputPath = "COB_Meet_the_Firms_02152019.csv";
+          public string inputPath = "COB_Meet_the_Firms_02222019.csv";
 
           public Form1()
           {
