@@ -26,10 +26,10 @@ namespace GoogleMapsFormApp
           public CityCount[] cityCount;
 
 
-          //Holds path of the location input file. For testing only
-          public string inputPath = "COB_Meet_the_Firms_02152019.csv";
+        //Holds path of the location input file. For testing only
+        public string inputPath = "COB_Meet_the_Firms_02152019.csv";
 
-          public Form1()
+        public Form1()
           {
                InitializeComponent();
           }
