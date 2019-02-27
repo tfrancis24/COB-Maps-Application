@@ -31,7 +31,7 @@ namespace GoogleMapsFormApp
           public string inputPath = "COB_Meet_the_Firms_02222019.csv";
 
 
-        public Form1()
+          public Form1()
           {
                InitializeComponent();
           }
