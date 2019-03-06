@@ -24,15 +24,13 @@ namespace GoogleMapsFormApp
 
           //Array of city count objects
           public CityCount[] cityCount;
+       
+          //Holds path of the location input file. For testing only
+          public string inputPath = "Meet_the_DSGN_Firms_02222019.csv";
+          //public string systemPath = Path.Combine(Environment.CurrentDirectory, inputPath);
 
 
-
-        //Holds path of the location input file. For testing only
-        public string inputPath = "Meet_the_DSGN_Firms_02222019.csv";
-        //public string systemPath = Path.Combine(Environment.CurrentDirectory, inputPath);
-
-
-        public Form1()
+          public Form1()
           {
                InitializeComponent();
           }
