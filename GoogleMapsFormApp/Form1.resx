@@ -214,7 +214,7 @@
     <value>3</value>
   </data>
   <data name="mapButton.Text" xml:space="preserve">
-    <value>Go</value>
+    <value>Marker Map</value>
   </data>
   <data name="&gt;&gt;mapButton.Name" xml:space="preserve">
     <value>mapButton</value>
