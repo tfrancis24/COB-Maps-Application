@@ -65,7 +65,7 @@ namespace GoogleMapsFormApp
                     }
                     catch (Exception ex)
                     {
-                         MessageBox.Show("You must select a file path" + ex.Message, "Error",
+                         MessageBox.Show("You must select a .csv file path" + ex.Message, "Error",
                          MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                }
