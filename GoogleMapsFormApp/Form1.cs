@@ -26,7 +26,7 @@ namespace GoogleMapsFormApp
           public CityCount[] cityCount;
        
           //Holds path of the location input file. For testing only
-          public string inputPath = "Meet_the_DSGN_Firms_02222019.csv";
+          public string inputPath = "";
           //public string systemPath = Path.Combine(Environment.CurrentDirectory, inputPath);
 
 
@@ -373,7 +373,7 @@ namespace GoogleMapsFormApp
                      "      position: citymap[city].center,",
                      "      icon: {",
                      "      path: google.maps.SymbolPath.CIRCLE,",
-                     "      scale: Math.sqrt(citymap[city].population)*15,",
+                     "      scale: Math.sqrt(citymap[city].population)*2,",
                      "      strokeColor: '#FF0000',",
                      "      strokeOpacity: 0.8,",
                      "      strokeWeight: 2,",
