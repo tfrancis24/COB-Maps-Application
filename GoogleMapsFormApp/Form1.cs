@@ -85,7 +85,7 @@ namespace GoogleMapsFormApp
           private void mapButton_Click(object sender, EventArgs e)
           {
 
-               readCSV();
+               readCSVMarker();
 
                //Saves file "MapTest" to the user's desktop
                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -97,9 +97,9 @@ namespace GoogleMapsFormApp
                };
 
                //These three functions write parts of the HTML file
-               Head(sw);
-               writeLocations(sw, locationData);
-               Tail(sw);
+               HeadMarker(sw);
+               writeMarkerLocations(sw, locationData);
+               TailMarker(sw);
 
                //Prints after above methods run, indicating the file has been created
                MessageBox.Show("Created File");
@@ -130,7 +130,7 @@ namespace GoogleMapsFormApp
 
           //Reads location data from an input CSV file
           //This method will be used to map pins
-          public void readCSV() //for marker map only
+          public void readCSVMarker() //for marker map only
           {
                //Loops through lines in csv file, skip the header row 
                foreach (var line in File.ReadAllLines(inputPath, Encoding.GetEncoding(1250)).Skip(1))
@@ -217,7 +217,7 @@ namespace GoogleMapsFormApp
           }
 
 
-          public void Head(StreamWriter writer)
+          public void HeadMarker(StreamWriter writer)
           {
                //StreamWriter _writer = new StreamWriter("test.html");
                List<string> html = new List<string>
@@ -277,7 +277,7 @@ namespace GoogleMapsFormApp
                html.ForEach(writer.WriteLine);
           }
 
-          public void writeLocations(StreamWriter writer, List<Tuple<string, MapLocation>> locationData)
+          public void writeMarkerLocations(StreamWriter writer, List<Tuple<string, MapLocation>> locationData)
           {
                for (int i = 0; i < locationData.Count; i++)
                {
@@ -305,7 +305,7 @@ namespace GoogleMapsFormApp
                }
           }
 
-          public void Tail(StreamWriter writer)
+          public void TailMarker(StreamWriter writer)
           {
                List<string> html = new List<string>
                {
