@@ -37,7 +37,7 @@ namespace Geocode
             City = obj.results[0].address_components
               .Where(x => x.types[0] == "locality")
               .DefaultIfEmpty(new Address_Components() { long_name = null })
-              .SingleOrDefault().long_name;
+              .FirstOrDefault().long_name;
 
             Region = obj.results[0].address_components
                .Where(x => x.types[0] == "administrative_area_level_1")
