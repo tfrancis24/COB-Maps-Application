@@ -24,9 +24,9 @@ namespace GoogleMapsFormApp
 
           //Array of city count objects
           public CityCount[] cityCount;
-       
+
           //Holds path of the location input file. For testing only
-          public string inputPath = "";
+          public string inputPath;
           //public string systemPath = Path.Combine(Environment.CurrentDirectory, inputPath);
 
 
@@ -132,6 +132,8 @@ namespace GoogleMapsFormApp
           //This method will be used to map pins
           public void readCSVMarker() //for marker map only
           {
+               inputPath = fileNameTextBox.Text;
+
                //Loops through lines in csv file, skip the header row 
                foreach (var line in File.ReadAllLines(inputPath, Encoding.GetEncoding(1250)).Skip(1))
                {
@@ -157,6 +159,7 @@ namespace GoogleMapsFormApp
           //Reads from the input file to count number of cities on the map
           public void readCSVCircleCount()
           {
+               inputPath = fileNameTextBox.Text;
                string[] lines = File.ReadAllLines(inputPath); //Reads all the lines of the file
                lines = lines.Skip(1).ToArray(); //Skips the header row
 
