@@ -148,7 +148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;inputButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="fileNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>99, 167</value>
@@ -172,10 +172,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fileNameTextBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>595, 329</value>
+    <value>588, 392</value>
   </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 7, 8, 7</value>
@@ -199,10 +199,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="mapButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>944, 329</value>
+    <value>937, 392</value>
   </data>
   <data name="mapButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 7, 8, 7</value>
@@ -226,10 +226,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mapButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="circleMapButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>944, 249</value>
+    <value>937, 312</value>
   </data>
   <data name="circleMapButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 55</value>
@@ -250,6 +250,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;circleMapButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="createDataButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="createDataButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>937, 228</value>
+  </data>
+  <data name="createDataButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 55</value>
+  </data>
+  <data name="createDataButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="createDataButton.Text" xml:space="preserve">
+    <value>Create Data File</value>
+  </data>
+  <data name="&gt;&gt;createDataButton.Name" xml:space="preserve">
+    <value>createDataButton</value>
+  </data>
+  <data name="&gt;&gt;createDataButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;createDataButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;createDataButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -262,7 +289,7 @@
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1296, 413</value>
+    <value>1319, 477</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 7, 8, 7</value>
