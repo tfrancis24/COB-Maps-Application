@@ -11,7 +11,7 @@ namespace GoogleMapsFormApp
      public partial class Form1 : Form
      {
           //Holds the API key
-          public static string apiKey = "";
+          public static string apiKey = "AIzaSyCPA9Iz-wpVr8-vwx4oL2n1fVG0IYmImwM";
 
           //Geocode object - place the API key here
           public GeocodeClient geocodeClient = new GeocodeClient(apiKey);
@@ -308,6 +308,16 @@ namespace GoogleMapsFormApp
                }
           }
 
+          public void writeDataFileLocations(StreamWriter writer, List<Tuple<string, int, MapLocation>> locationData)
+          {
+               for (int i = 0; i < locationData.Count; i++)
+               {
+                    writer.Write($"{locationData[i].Item3.City},{locationData[i].Item3.Region}," +
+                        $"{locationData[i].Item3.latitude},{locationData[i].Item3.longitude}," +
+                        $"{locationData[i].Item2}");
+               }
+          }
+
           public void TailMarker(StreamWriter writer)
           {
                List<string> html = new List<string>
@@ -400,18 +410,21 @@ namespace GoogleMapsFormApp
         //Writes location lat long & a count to a csv file
         private void createDataButton_Click(object sender, EventArgs e)
         {
-            //readCSVCircleCount();
+            readCSVCircleCount();
 
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             StreamWriter sw = new StreamWriter(desktopPath + "\\GeoData.csv")
             {
-                //This fixed the issue of  streamwriter randomly freezing the write file process
-                //Flushing the output buffer to keep it from being full
                 AutoFlush = true
             };
 
-            sw.Write($"City,Region,Latitude,Longitude,Count\n");
+            //Header row
+            sw.WriteLine($"City,Region,Latitude,Longitude,Count");
 
+            //Calling function that writes data for each location to file
+            writeDataFileLocations();
+
+            MessageBox.Show("Data file created!");
         }
     }
 }
