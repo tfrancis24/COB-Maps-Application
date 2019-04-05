@@ -308,7 +308,17 @@ namespace GoogleMapsFormApp
                }
           }
 
-          public void TailMarker(StreamWriter writer)
+          public void writeDataFileLocations(StreamWriter writer, List<Tuple<string, int, MapLocation>> locationData)
+          {
+               for (int i = 0; i < locationData.Count; i++)
+               {
+                    writer.Write($"{locationData[i].Item3.City},{locationData[i].Item3.Region}," +
+                        $"{locationData[i].Item3.Country},{locationData[i].Item3.latitude}," +
+                        $"{locationData[i].Item3.longitude},{locationData[i].Item2}\n");
+               }
+          }
+
+        public void TailMarker(StreamWriter writer)
           {
                List<string> html = new List<string>
                {
@@ -397,6 +407,23 @@ namespace GoogleMapsFormApp
                html.ForEach(writer.WriteLine);
           }
 
+        //Writes location lat long & a count to a csv file
+        private void createDataButton_Click(object sender, EventArgs e)
+        {
+            readCSVCircleCount();
 
-     }
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            StreamWriter sw = new StreamWriter(desktopPath + "\\GeoData.csv")
+            {
+                //This fixed the issue of  streamwriter randomly freezing the write file process
+                //Flushing the output buffer to keep it from being full
+                AutoFlush = true
+            };
+
+            sw.Write($"City,Region,Country,Latitude,Longitude,Count\n");
+            writeDataFileLocations(sw, locationDataCityCount);
+            MessageBox.Show("Data file complete!");
+
+        }
+    }
 }
