@@ -22,17 +22,17 @@ namespace Geocode
             Street = obj.results[0].address_components
                 .Where(x => x.types[0] == "street_number")
                 .DefaultIfEmpty(new Address_Components() { long_name = null })
-                .SingleOrDefault().long_name;
+                .FirstOrDefault().long_name;
 
             Street += " " + obj.results[0].address_components
                 .Where(x => x.types[0] == "route")
                 .DefaultIfEmpty(new Address_Components() { long_name = null })
-                .SingleOrDefault().long_name;
+                .FirstOrDefault().long_name;
 
             Apt = obj.results[0].address_components
                .Where(x => x.types[0] == "premise")
                .DefaultIfEmpty(new Address_Components() { long_name = null })
-               .SingleOrDefault().long_name;
+               .FirstOrDefault().long_name;
 
             City = obj.results[0].address_components
               .Where(x => x.types[0] == "locality")
@@ -42,17 +42,17 @@ namespace Geocode
             Region = obj.results[0].address_components
                .Where(x => x.types[0] == "administrative_area_level_1")
                .DefaultIfEmpty(new Address_Components() { long_name = null })
-               .SingleOrDefault().long_name;
+               .FirstOrDefault().long_name;
 
             PostalCode = obj.results[0].address_components
                 .Where(x => x.types[0] == "postal_code")
                 .DefaultIfEmpty(new Address_Components() { long_name = null })
-                .SingleOrDefault().long_name;
+                .FirstOrDefault().long_name;
 
             Country = obj.results[0].address_components
                .Where(x => x.types[0] == "country")
                .DefaultIfEmpty(new Address_Components() { long_name = null })
-               .SingleOrDefault().long_name;
+               .FirstOrDefault().long_name;
         }
     }
 
