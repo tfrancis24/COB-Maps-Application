@@ -394,6 +394,7 @@ namespace GoogleMapsFormApp
                      "      fillOpacity: 0.35",
                      "      },",
                      "      clickable: true,",
+                     "      title: \"\" + citymap[city].name.toString() + \"\\n Alumni: \" + citymap[city].population.toString()",
                      "    };",
                      "    cityCircle = new google.maps.Marker(populationOptions);",
                      "  }",
