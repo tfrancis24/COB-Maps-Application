@@ -212,7 +212,7 @@ namespace GoogleMapsFormApp
                     });
 
                     //Adds the company name and the maplocation tied to it into the list
-                    locationDataCityCount.Add(new Tuple<string, int, MapLocation>(cityCountObject.City + "," +
+                    locationDataCityCount.Add(new Tuple<string, int, MapLocation>(cityCountObject.City + ", " +
                         cityCountObject.State, cityCountObject.Count, location));
                }
 
