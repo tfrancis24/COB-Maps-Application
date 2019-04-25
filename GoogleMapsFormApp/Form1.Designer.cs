@@ -36,6 +36,7 @@
             this.circleMapButton = new System.Windows.Forms.Button();
             this.createDataButton = new System.Windows.Forms.Button();
             this.dupButton = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // inputButton
@@ -86,11 +87,19 @@
             this.dupButton.Name = "dupButton";
             this.dupButton.UseMnemonic = false;
             this.dupButton.UseVisualStyleBackColor = true;
+            this.dupButton.Click += new System.EventHandler(this.dupButton_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.listBox1, "listBox1");
+            this.listBox1.Name = "listBox1";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dupButton);
             this.Controls.Add(this.createDataButton);
             this.Controls.Add(this.circleMapButton);
@@ -115,6 +124,7 @@
         private System.Windows.Forms.Button circleMapButton;
         private System.Windows.Forms.Button createDataButton;
         private System.Windows.Forms.Button dupButton;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

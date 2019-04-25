@@ -22,6 +22,8 @@ namespace GoogleMapsFormApp
           //Holds an int as a count variable and MapLocation object
           public List<Tuple<string, int, MapLocation>> locationDataCityCount = new List<Tuple<string, int, MapLocation>>();
 
+          public List<Tuple<string, int>> duplicateCount = new List<Tuple<string, int>>();
+
           //Array of city count objects
           public CityCount[] cityCount;
 
@@ -300,10 +302,10 @@ namespace GoogleMapsFormApp
           {
                for (int i = 0; i < locationData.Count; i++)
                {
-                    writer.Write("	citymap['" + locationData[i].Item3.City + "," + locationData[i].Item3.Region + "']= {\n"
+                    writer.Write("	citymap['" + locationData[i].Item1 + "']= {\n"
                         + "		center: new google.maps.LatLng(" + locationData[i].Item3.latitude + ", " + locationData[i].Item3.longitude + "),\n"
                         + "		population: " + locationData[i].Item2 + ",\n"
-                        + "		name:' " + locationData[i].Item3.City + ", " + locationData[i].Item3.Region + "'\n"
+                        + "		name:' " + locationData[i].Item1 + "'\n"
                         + "	};\n");
                }
           }
@@ -425,6 +427,60 @@ namespace GoogleMapsFormApp
             writeDataFileLocations(sw, locationDataCityCount);
             MessageBox.Show("Data file complete!");
 
+        }
+
+        private void dupButton_Click(object sender, EventArgs e)
+        {
+            inputPath = fileNameTextBox.Text;
+            string[] lines = File.ReadAllLines(inputPath); //Reads all the lines of the file
+            lines = lines.Skip(1).ToArray(); //Skips the header row
+
+            int uniqueCityCount = 0; //Count of total unique cities in file
+            cityCount = new CityCount[lines.Length]; //Array of CityCount objects, get the number of objects from the file length
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] addressInfo = lines[i].Split(','); //Splits each row of the data into an array
+                string city = addressInfo[3];
+                string state = addressInfo[4];
+                bool found = false;
+
+                for (int j = 0; j < uniqueCityCount; j++)
+                {
+                    if (cityCount[j].City == city && cityCount[j].State == state)
+                    {
+                        cityCount[j].Count++;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    cityCount[uniqueCityCount] = new CityCount
+                    {
+                        City = city,
+                        State = state,
+                        Count = 1
+                    };
+                    uniqueCityCount++;
+                }
+            }
+
+            //Remove null indexes
+            cityCount = cityCount.Where(c => c != null).ToArray();
+
+            foreach (var cityCountObject in cityCount)
+            {
+                duplicateCount.Add(new Tuple<string, int>(cityCountObject.City + "," + cityCountObject.State, cityCountObject.Count));
+            }
+
+            //listBox1.Items.Add(duplicateCount);
+
+            for (int i = 0; i < duplicateCount.Count; i++)
+            {
+                listBox1.Items.Add(duplicateCount[i].Item1 + "\t" + "Count: " + duplicateCount[i].Item2);
+            }
         }
     }
 }
